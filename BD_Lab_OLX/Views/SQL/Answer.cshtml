@@ -1,0 +1,205 @@
+﻿@model SQL
+@if (Model.QueryId == 1)
+{
+    <h1>Отримуйте деталі всіх замовлень разом з інформацією про користувача та доставку</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">UserName</th>
+                    <th>DeliveryName</th>
+                    <th>DelivDesc</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserNames.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.UserNames[i]
+                    </td>
+                    <td>
+                        @Model.Delivery[i]
+                    </td>
+                    <td>
+                        @Model.DeliveryDescription[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.QueryId == 2)
+{
+    <h2>
+        Всі користовачі та їх Email, всіх хто використовував задану доставку
+    </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">UserNames</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserNames.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.UserNames[i]
+                    </td>
+                    <td>
+                        @Model.Email[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.QueryId == 3)
+{
+    <h1>Імена всіх користувачів, які оформили замовлення з вказаним способом оплати</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">UserName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Bank.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.Bank[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.QueryId == 4)
+{
+    <h1>Імена користувачів і товарів, які зробили замовлення на товари в категоріях з найвищою середньою ціною</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">UserName</th>
+                <th>ProductNames</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserNames.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.UserNames[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.Products[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.QueryId == 5)
+{
+    <h1>Імена користувачів, у яких ціна товару менша, ніж ви вказали</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">UserName</th>
+                <th>ProductNames</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserNames.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.UserNames[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.Products[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.Price[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.QueryId == 6)
+{
+    <h1>Назви та опис всіх категорій, в яких є товари з цінами, вищими за середню ціну товарів у цих категоріях</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">CategoryName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserNames.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                     @Model.UserNames[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.QueryId == 7)
+{
+    <h1>Назви категорій, в яких є хоча б один товар з ціною, меншою за вказану</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">CategoryName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserNames.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+                        @Model.UserNames[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.QueryId == 8)
+{
+    <h1>Імена та адреси електронної пошти користувачів, які зробили замовлення з варіантом оплати, який використовували щонайменше двоє інших користувачів</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="product-cell">Names</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserNames.Count; i++)
+            {
+                <tr>
+                    <td class="product-cell">
+ 1                       @Model.UserNames[i]
+                    </td>
+                    <td class="product-cell">
+                        @Model.Email[i]
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

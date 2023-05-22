@@ -1,0 +1,90 @@
+﻿@model SQL
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: dodgerblue;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+    </style>
+
+</head>
+<body>
+    <h1>Сторінка запитів</h1>
+    <form asp-action="First">
+        <h2>Перший запит</h2>
+        <p>Деталі всіх замовлень з інформацією про користувача та доставку</p>
+        <button >Execute</button>-
+    </form>
+    <form asp-action="Second">
+        <h2>Другий запит</h2>
+        <input type="text" id="queryInput2" asp-for=DeliveryName placeholder="NovaPoshta/UkrPoshta/Meest/Justin/Personal Delivery">
+        <p>Отримайте всіх користовачів та їх Email, хто використовував задану доставку</p>
+        <button >Execute</button>
+    </form>
+    <form asp-action="Third">
+        <h2>Третій запит</h2>
+        <input type="text" id="queryInput3" asp-for=BankName placeholder="PrivatBank/Mono/UkrSibbank/Oschad/Otp">
+        <p>Отримайте імена всіх користувачів, які оформили замовлення з вказаним способом оплати</p>
+        <button >Execute</button>
+    </form>
+    <form asp-action="Fourth">
+        <h2>Четвертий запит</h2>
+        <p>Отримате імена користувачів і товарів, які зробили замовлення на товари в категоріях з найвищою середньою ціною</p>
+        <button >Execute</button>
+    </form>
+    <form asp-action="Fifth">
+        <h2>П'ятий запит</h2>
+        <input type="text" id="queryInput5" asp-for=price placeholder ="Вкажіть ціну">
+        <p>Знайдіть імена користувачів, у яких ціна товару менша за вказану</p>
+        <button >Execute</button>
+    </form>
+    <form asp-action="Multiple1">
+        <h2>Множинний запит 1</h2>
+        <p>Знайдіть назви та опис всіх категорій, в яких є товари з цінами, вищими за середню ціну товарів у цих категоріях</p>
+        <button >Execute</button>
+    </form>
+    <form asp-action="Multiple2">
+        <h2>Множинний запит 2</h2>
+        <input type="text" id="queryInput7" asp-for=Price placeholder ="Вкажіть ціну">
+        <p>Знайдіть назви всіх категорій, в яких є хоча б один товар з ціною, меншою за вказану</p>
+        <button >Execute</button>
+    </form>
+    <form asp-action="Multiple3">
+        <h2>Множинний запит 3</h2>
+        <p>Знайдіть імена та адреси пошти користувачів, які зробили замовлення з варіантом оплати, який використовували щонайменше двоє інших користувачів</p>
+        <button >Execute</button>
+    </form>
+</body>
+</html>
